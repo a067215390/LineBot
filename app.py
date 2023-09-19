@@ -26,13 +26,6 @@ def handle_message(event):
     message = TextSendMessage(text=event.message.text)
     line_bot_api.reply_message(event.reply_token, message)
 
-    for event in events:
-            if isinstance(event, MessageEvent):  # 如果有訊息事件
-                line_bot_api.reply_message(  # 回復傳入的訊息文字
-                    event.reply_token,
-                    TextSendMessage(text=event.message.text)
-                )
-
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
